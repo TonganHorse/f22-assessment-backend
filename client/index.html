@@ -6,15 +6,12 @@
   <body class="container">
     <button id="complimentButton">Get a compliment</button>
     <button id="fortuneButton">Get a fortune</button>
-    <br>
-    <form id="signup">
-      firstname<input type="text" id="firstname" placeholder="type here"> 
-      <br>
-      lastname<input type="text" id="lastname" placeholder="type here">
-      <br>
-      <button type="submit">submit</button>
-    </form>
-    <section id="display-users"></section>
+    
+    <input type="textarea" id="new-fortune" placeholder="add your own fortune">
+    <button id="new-fortune-button">add fortune</button>
+
+    <input type="text" id="delete-input" placeholder="delete fortune id">
+    <button id="delete-fortune">delete fortune</button>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="main.js"></script>

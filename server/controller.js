@@ -1,6 +1,7 @@
+const fortunes = ['A beautiful, smart, and loving person will be coming into your life.', 'A dubious friend may be an enemy in camouflage.', 'A faithful friend is a strong defense.', 'A feather in the hand is better than a bird in the air.']
 
 let users = []
-let globalId = 1
+let globalId = 0
 
 module.exports = {
 
@@ -14,25 +15,21 @@ module.exports = {
         res.status(200).send(randomCompliment);
     },
     getFortune: (req, res) => {
-        const fortunes = ['A beautiful, smart, and loving person will be coming into your life.', 'A dubious friend may be an enemy in camouflage.', 'A faithful friend is a strong defense.', 'A feather in the hand is better than a bird in the air.']
 
         let random = Math.floor(Math.random() * fortunes.length)
         let randomFortune = fortunes[random]
 
         res.status(200).send(randomFortune)
     }, 
-    postUser: (req, res) => {
-        console.log(req.body)
-        
-        let {firstname, lastname} = req.body
-
-        let newUser = {
-            id: globalId,
-            firstname,
-            lastname,
-        }
-        users.push(newUser)
-        res.status(200).send(users)
+    addFortune: (req, res) => {
+            const { newFortune } = req.body
+            fortunes.push(newFortune)
+            res.send(fortunes)
+    },
+    deleteFortune: (req, res) => {
+         let {id} = req.params
+         fortunes.splice(id, 1)
+         res.status(200).send(`deleted the fortune at ${id}`)
     }
 
 }
