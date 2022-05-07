@@ -4,6 +4,11 @@ const newFortuneBtn = document.getElementById('new-fortune-button')
 const newFortuneInput = document.getElementById('new-fortune')
 const deleteBtn = document.getElementById('delete-fortune')
 const deleteInput = document.getElementById('delete-input')
+const displayFortunes = document.getElementById('display-fortunes')
+const idToChange = document.getElementById('compliment-to-change')
+const replaceCompliment = document.getElementById('new-compliment')
+const changeNameBtn = document.getElementById('change-name-at-id')
+
 
 
 
@@ -26,6 +31,11 @@ const addFortune = () => {
     .then(res => {
         alert('new fortune added')
         newFortuneInput.value = ''
+
+        
+        let fortuneList = document.createElement('div')
+        displayFortunes.append(fortuneList)
+        fortuneList.textContent = newFortune
     })
 }
 const deleteFortune = () => {
@@ -34,9 +44,22 @@ const deleteFortune = () => {
         alert(res.data)
     })
 }
+const changeCompliment = () => {
+
+const compliment = replaceCompliment.value
+    axios.put(`http://localhost:4000/api/compliment/${idToChange.value}` ,{compliment})
+    .then(res => {
+        alert(`element changed`)
+    })
+}
+
 
 
 complimentBtn.addEventListener('click', getCompliment)
 fortuneBtn.addEventListener('click', getFortune)
 newFortuneBtn.addEventListener('click', addFortune)
 deleteBtn.addEventListener('click', deleteFortune)
+changeNameBtn.addEventListener('click', changeCompliment)
+
+
+
