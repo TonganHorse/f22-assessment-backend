@@ -42,8 +42,9 @@ module.exports = {
                 compliments[i] = compliment
             }
         }
+        console.log(compliments)
        res.status(200).send(compliments)
-       
+    
     }
     
 }

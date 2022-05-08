@@ -45,8 +45,9 @@ const deleteFortune = () => {
     })
 }
 const changeCompliment = () => {
-
-const compliment = replaceCompliment.value
+    
+    const compliment = replaceCompliment.value;
+   
     axios.put(`http://localhost:4000/api/compliment/${idToChange.value}` ,{compliment})
     .then(res => {
         alert(`element changed`)

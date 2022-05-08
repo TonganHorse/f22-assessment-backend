@@ -4,7 +4,6 @@ const cors = require("cors");
 const app = express();
 
 app.use(cors());
-
 app.use(express.json());
 
 const { getCompliment, getFortune, addFortune, deleteFortune, changeCompliment } = require('./controller')
